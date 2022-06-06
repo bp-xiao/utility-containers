@@ -1,0 +1,24 @@
+---
+version: '3'
+
+services:
+  oneshot:
+    image: bpxiao/oneshot
+    build: oneshot/
+  'true':
+    image: bpxiao/true
+    build:
+      context: oneshot
+      args:
+        APP_STATUS: "0"
+        APP_SLEEP_SECONDS: "0"
+        APP_SLEEP_COUNT: "0"
+  'false':
+    image: bpxiao/false
+    build:
+      context: oneshot
+      args:
+        APP_STATUS: "1"
+        APP_SLEEP_SECONDS: "0"
+        APP_SLEEP_COUNT: "0"
+
